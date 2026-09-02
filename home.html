@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lackawanna Esports — Battle of the Mid-Atlantic</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="home.html">
+      <img src="logo.png" alt="Lackawanna Esports logo">
+      <span>LACKAWANNA ESPORTS</span>
+    </a>
+    <div class="nav-links">
+      <a href="home.html" class="active">Home</a>
+      <a href="index.html">Bracket</a>
+      <a href="register.html">Register</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header class="page-hero">
+    <div class="eyebrow">RAINBOW SIX SIEGE · COLLEGIATE LAN</div>
+    <h1>BATTLE OF THE <span>MID-ATLANTIC</span></h1>
+    <p>Lackawanna College Esports began in 2018 and strives to be a collegiate powerhouse. Each year we host a Rainbow Six Siege LAN, welcoming teams to the Scranton, PA campus for two days of play.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="register.html">Register a Team</a>
+      <a class="btn btn-outline" href="index.html">View the Bracket</a>
+    </div>
+  </header>
+
+  <section>
+    <div class="intro-block">
+      <div>
+        <p>This year's tournament runs October 24–25, bringing teams from across the region to compete in a two-day format: a Day 1 round robin group stage, followed by a seeded single-elimination playoff bracket on Day 2.</p>
+        <p>Whether you're chasing the trophy or just here to watch the plays, follow along all weekend — matches stream live below.</p>
+      </div>
+      <img class="intro-logo" src="logo.png" alt="Lackawanna Esports logo">
+    </div>
+
+    <div class="info-strip">
+      <div class="info-card">
+        <div class="label">DATES</div>
+        <div class="value">Oct 24 – 25</div>
+        <div class="sub">Two days of competition</div>
+      </div>
+      <div class="info-card">
+        <div class="label">LOCATION</div>
+        <div class="value">Scranton, PA</div>
+        <div class="sub">Lackawanna College campus</div>
+      </div>
+      <div class="info-card">
+        <div class="label">FORMAT</div>
+        <div class="value">Round Robin → Playoffs</div>
+        <div class="sub">10 teams, Bo1 except the final</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LIVE STREAM ============ -->
+  <section>
+    <div class="section-head">
+      <span class="tag">LIVE</span>
+      <h2>Watch the Stream</h2>
+      <span class="note">LackawannaEDU on Twitch · PlayLCEsports on YouTube</span>
+    </div>
+
+    <div class="stream-grid">
+      <div class="stream-panel">
+        <div class="stream-panel-head">
+          <span class="platform-badge twitch">TWITCH</span>
+          <span class="channel-name">LackawannaEDU</span>
+          <a class="open-link" href="https://www.twitch.tv/LackawannaEDU" target="_blank" rel="noopener">Open on Twitch ↗</a>
+        </div>
+        <div class="stream-frame-wrap">
+          <iframe id="twitch-frame" allowfullscreen allow="autoplay; fullscreen"></iframe>
+        </div>
+      </div>
+
+      <div class="stream-panel">
+        <div class="stream-panel-head">
+          <span class="platform-badge youtube">YOUTUBE</span>
+          <span class="channel-name">PlayLCEsports</span>
+          <a class="open-link" href="https://www.youtube.com/@PlayLCEsports/live" target="_blank" rel="noopener">Open on YouTube ↗</a>
+        </div>
+        <div class="stream-frame-wrap">
+          <iframe id="youtube-frame" src="https://www.youtube.com/embed/live_stream?channel=PlayLCEsports&autoplay=0" allowfullscreen allow="autoplay; fullscreen"></iframe>
+        </div>
+      </div>
+    </div>
+    <p class="stream-hint">
+      Twitch embeds only play from an approved domain — this page sets that automatically to wherever it's hosted. If it stays blank, use the "Open on Twitch" link instead.<br>
+      The YouTube panel goes dark when PlayLCEsports isn't live; the "Open on YouTube" link always takes you to their live tab directly.
+    </p>
+  </section>
+
+  <footer>
+    <b>Lackawanna College Esports</b> — founded 2018 · Scranton, PA. Questions about the tournament? Head to the <a href="register.html">Register</a> page for entry details, or check the <a href="index.html">Bracket</a> page once matches begin.
+  </footer>
+
+</div>
+
+<script>
+  const twitchParent = location.hostname || 'localhost';
+  document.getElementById('twitch-frame').src =
+    `https://player.twitch.tv/?channel=LackawannaEDU&parent=${twitchParent}&muted=false`;
+</script>
+</body>
+</html>

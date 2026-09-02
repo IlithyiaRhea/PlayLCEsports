@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Register — Battle of the Mid-Atlantic | Lackawanna Esports</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="home.html">
+      <img src="logo.png" alt="Lackawanna Esports logo">
+      <span>LACKAWANNA ESPORTS</span>
+    </a>
+    <div class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="index.html">Bracket</a>
+      <a href="register.html" class="active">Register</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header class="page-hero">
+    <div class="eyebrow">TEAM SIGN-UP</div>
+    <h1>REGISTER YOUR <span>TEAM</span></h1>
+    <p>Bring your squad to Scranton, PA and compete for the Battle of the Mid-Atlantic title. Spots are limited to 10 teams — register early to lock in your slot.</p>
+  </header>
+
+  <section>
+    <div class="reg-layout">
+
+      <div class="reg-summary">
+        <h3>Tournament Details</h3>
+        <ul>
+          <li><span class="k">Entry Fee</span><span class="v">$150 / team</span></li>
+          <li><span class="k">Dates</span><span class="v">Oct 24 – 25</span></li>
+          <li><span class="k">Location</span><span class="v">Lackawanna College, Scranton, PA</span></li>
+          <li><span class="k">Format</span><span class="v">Round robin + playoffs</span></li>
+          <li><span class="k">Match Rules</span><span class="v">Best of 1 (Final: Bo3)</span></li>
+          <li><span class="k">Roster Size</span><span class="v">5 starters + 1 sub</span></li>
+        </ul>
+        <p class="reg-note">
+          The $150 entry fee is due at check-in on Day 1 (October 24). We'll follow up by email with payment options once your registration is received. Fields marked * are required.
+        </p>
+      </div>
+
+      <div class="reg-form">
+        <h3>Team Registration</h3>
+        <form id="reg-form">
+          <div class="form-grid">
+            <div class="form-field full">
+              <label for="teamName">Team Name *</label>
+              <input type="text" id="teamName" required>
+            </div>
+            <div class="form-field">
+              <label for="captainName">Team Captain *</label>
+              <input type="text" id="captainName" required>
+            </div>
+            <div class="form-field">
+              <label for="captainEmail">Captain Email *</label>
+              <input type="email" id="captainEmail" required>
+            </div>
+            <div class="form-field">
+              <label for="captainPhone">Captain Phone</label>
+              <input type="tel" id="captainPhone">
+            </div>
+            <div class="form-field">
+              <label for="school">School / Organization</label>
+              <input type="text" id="school">
+            </div>
+
+            <div class="roster-block">
+              <label>Roster (5 starters + 1 optional sub)</label>
+              <div class="roster-grid">
+                <input type="text" id="p1" placeholder="Player 1 — Ubisoft ID">
+                <input type="text" id="p2" placeholder="Player 2 — Ubisoft ID">
+                <input type="text" id="p3" placeholder="Player 3 — Ubisoft ID">
+                <input type="text" id="p4" placeholder="Player 4 — Ubisoft ID">
+                <input type="text" id="p5" placeholder="Player 5 — Ubisoft ID">
+                <input type="text" id="p6" placeholder="Substitute (optional)">
+              </div>
+            </div>
+
+            <div class="form-field full">
+              <label for="notes">Notes / Questions</label>
+              <textarea id="notes" rows="3"></textarea>
+            </div>
+          </div>
+
+          <label class="waiver">
+            <input type="checkbox" id="waiver" required>
+            I confirm all listed players are eligible to compete and agree to the tournament rules and code of conduct. I understand the $150 entry fee is due at check-in.
+          </label>
+
+          <div class="submit-row">
+            <button type="submit" class="btn btn-primary">Submit Registration</button>
+            <span class="send-to">Sends to <span contenteditable>esports@lackawanna.edu</span></span>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <b>Questions?</b> Reach out before submitting if you need a roster exception or a fee waiver. Once your team is confirmed, matchups and schedule appear on the <a href="index.html">Bracket</a> page.
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById('reg-form').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const val = id => document.getElementById(id).value.trim();
+    const sendTo = document.querySelector('.send-to span[contenteditable]').textContent.trim();
+
+    const roster = ['p1','p2','p3','p4','p5','p6']
+      .map((id,i) => `Player ${i+1}: ${val(id) || '—'}`)
+      .join('%0D%0A');
+
+    const subject = encodeURIComponent(`R6 Siege Registration — ${val('teamName') || 'Unnamed Team'}`);
+    const body =
+      `Team Name: ${val('teamName')}%0D%0A` +
+      `Captain: ${val('captainName')}%0D%0A` +
+      `Captain Email: ${val('captainEmail')}%0D%0A` +
+      `Captain Phone: ${val('captainPhone')}%0D%0A` +
+      `School / Org: ${val('school')}%0D%0A%0D%0A` +
+      `Roster:%0D%0A${roster}%0D%0A%0D%0A` +
+      `Notes: ${val('notes')}`;
+
+    window.location.href = `mailto:${sendTo}?subject=${subject}&body=${body}`;
+  });
+</script>
+</body>
+</html>
